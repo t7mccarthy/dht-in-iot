@@ -62,6 +62,7 @@ if __name__ == "__main__":
     conn.commit()
 
     # _________________Inserting_________________
+    open('devicefile.txt', 'w').close()
     sensors_dict = generate_key_values(num_keys)
     current_time = time.time()
     # Put calls
@@ -78,6 +79,14 @@ if __name__ == "__main__":
     #     cursor.execute("SELECT COUNT(*) FROM sensors;")
     #     conn.commit()
     #     num_rows = cursor.fetchall()[0][0]
+
+    l = 0
+    while l < num_keys:
+        with open('devicefile.txt') as infile:
+        # print(l)
+            l = sum([len(line) for line in infile])
+    print("done", l)
+    print(f"Inserted {num_keys} key-value pairs into the database.")
 
 
     # print(f"Inserted {len(sensors_dict)} key-value pairs into the database.")
