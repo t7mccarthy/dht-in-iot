@@ -8,7 +8,7 @@ import math
 import random
 import time
 
-def nextTime(rateParameter = 1/5):
+def nextTime(rateParameter = 1/2):
     return -math.log(1.0 - random.random()) / rateParameter
 
 loop = asyncio.get_event_loop()
@@ -24,8 +24,8 @@ while True:
 	loop.run_until_complete(server.listen(8470 + int(sys.argv[1])))
 	loop.run_until_complete(server.bootstrap([bootstrap_node]))
 	next_time = time.time() + nextTime()
-	# while time.time() < next_time:
-	while True:
+	while time.time() < next_time:
+	# while True:
 		for device in range(start_device_id, start_device_id + 10):
 			result = loop.run_until_complete(server.set(str(device), value))
 			if result and first[device - start_device_id]:

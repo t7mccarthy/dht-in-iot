@@ -8,7 +8,7 @@ import math
 import random
 import time
 
-def nextTime(rateParameter = 1/1):
+def nextTime(rateParameter = 1/0.5):
     return -math.log(1.0 - random.random()) / rateParameter
 
 loop = asyncio.get_event_loop()
