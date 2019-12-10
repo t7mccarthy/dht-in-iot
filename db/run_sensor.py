@@ -18,7 +18,13 @@ if __name__ == "__main__":
 	while True:
 		connect_str = "dbname='iot_sensors' user='eric_bot' host='localhost' password='password'"
 		# use our connection values to establish a connection
-		conn = psycopg2.connect(connect_str)
+		conn = None
+		while True:
+			try:
+				conn = psycopg2.connect(connect_str)
+				break
+			except:
+				pass
 		# create a psycopg2 cursor that can execute queries
 		cursor = conn.cursor()
 		# create a new table with a single column called "name"
