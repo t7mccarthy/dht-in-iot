@@ -1,4 +1,4 @@
-# Distributed Hash Table/IOT Simulations
+# Simiulating Distributed Hash Tables for Ad-hoc Wireless IoT Communication
 
 ### Harvard CS 143 Final Project
 ### Developed by Tom McCarthy and Eric Lin
