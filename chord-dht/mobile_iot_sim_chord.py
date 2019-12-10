@@ -43,17 +43,30 @@ if __name__ == "__main__":
 		for proc in procs:
 			proc.kill()
 		exit(0)
+
+	print("FINISHED INSERTING")
+	# stop()
 	i = 0
 	# server = Node(Address("127.0.0.1", 3501), Address("127.0.0.1", 3500))
+
 	server = ClientNode(Address("127.0.0.1", 3000))
+
+
 	while i < 100:
+		print("LOOKING UP DURING EVAL")
 		k = str(random.randint(0, num_keys))
 		# print("Looking up")
-		result = server.lookUpKey(k)
-		if result == str(-1): continue
-		# print("found key during eval", i, result)
+		try:
+			result = server.lookUpKey(k)
+		except ConnectionRefusedError:
+			print("CONNECTION REFUSED")
+			stop()
+		if result == str(-1):
+			print("NOT FOUND DURING EVAL", i, k, result)
+			continue
+		print("found key during eval", i, k, result)
 		i += 1
-		# if time.time() - current_time > 15: stop()
+		if time.time() - current_time > 15: stop()
 	surpassed_time = time.time() - current_time
 	print(f"100 lookup operations with {num_keys} devices took {surpassed_time} seconds.")
 
