@@ -9,3 +9,5 @@ In this Git Repo, we present implementations of proof-of-concept for the followi
 - Chord DHT
 - Kadmelia DHT
 - Traditional centralized database approach.
+
+Old commits in https://github.com/t7mccarthy/dht-iot-old.
