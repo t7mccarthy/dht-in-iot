@@ -15,7 +15,7 @@ Running the DHT simulations is only supported in linux OS. Using a VM is highly 
 ## Chord DHT
 A basic implementation of a chord DHT used in IOT communication simulations.
 
-#### Usage
+### Usage
 Run `setup_network.py N` before running anything else to initialize the network with N nodes. This will open N gnome terminals, which must be closed before running the program again.
 
 Run `iot_sim_chord.py 127.0.0.1 3000 N` to test how long it takes to insert and check N value-key pairs.
@@ -33,7 +33,7 @@ Run `mobile_iot_sim_chord N` to simulate a mobile/wireless network with nodes go
 ## Kademila DHT
 Python Kademlia API (a basic implementation of a Kademlia DHT: https://kademlia.readthedocs.io/en/latest/) used in IOT communication simulations.
 
-#### Usage
+### Usage
 Run `setup_network.py N` before running anything else to initialize the network with N nodes. This will open N gnome terminals, which must be closed before running the program again.
 
 Run `iot_sim_kademlia.py N` to test how long it takes to insert and check N value-key pairs.
@@ -56,7 +56,7 @@ Run `mobile_iot_sim_kad N` to simulate a mobile/wireless network with nodes goin
 ## Centralized Database
 IOT communication simulations using a traditional centralized PostgreSQL database. This assumes you have set up a local Postgres database called `iot_sensors` and are running it on localhost. Our implementation also requires a database user `eric_bot` who has all privileges on `iot_sensors` and has password `password`.
 
-#### Usage
+### Usage
 Run `iot_sim_db.py N` to test how long it takes to insert and lookup 100 random keys in a network of N devices.
 
 Run `insert_lookup_db.py N` to test how long it takes to insert and lookup N key-value pairs.
