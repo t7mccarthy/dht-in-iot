@@ -1,4 +1,4 @@
-# Simiulating Distributed Hash Tables for Ad-hoc Wireless IoT Communication
+# Simiulating Distributed Hash Tables for Ad-hoc Wireless IoT Communication: https://github.com/t7mccarthy/dht-iot
 
 ### Harvard CS 143 Final Project
 ### Developed by Tom McCarthy and Eric Lin
@@ -16,7 +16,7 @@ Running the DHT simulations is only supported in linux OS. Using a VM is highly 
 A basic implementation of a chord DHT used in IOT communication simulations.
 
 ### Usage
-Run `setup_network.py N` before running anything else to initialize the network with N nodes. This will open N gnome terminals, which must be closed before running the program again.
+Run `setup_network.py N` before running anything else to initialize the network with N nodes. This will open N gnome terminals, which must be closed before running the program again. Testing was carried out with 3 initial network nodes, but any number would work.
 
 Run `iot_sim_chord.py 127.0.0.1 3000 N` to test how long it takes to insert and check N value-key pairs.
 
@@ -34,13 +34,13 @@ Run `mobile_iot_sim_chord N` to simulate a mobile/wireless network with nodes go
 Python Kademlia API (a basic implementation of a Kademlia DHT: https://kademlia.readthedocs.io/en/latest/) used in IOT communication simulations.
 
 ### Usage
-Run `setup_network.py N` before running anything else to initialize the network with N nodes. This will open N gnome terminals, which must be closed before running the program again.
+Run `setup_network.py N` before running anything else to initialize the network with N nodes. This will open N gnome terminals, which must be closed before running the program again. Testing was carried out with 3 initial network nodes, but any number would work.
 
 Run `iot_sim_kademlia.py N` to test how long it takes to insert and check N value-key pairs.
 
 Run `iot_sim_kad N` to set N key-value pairs on the DHT and report how long it took to lookup 100 random keys.
 
-Run `mobile_iot_sim_kad N` to simulate a mobile/wireless network with nodes going offline according to a poisson traffic model. After terminating, the program will report how long it took to lookup 100 random keys.
+Run `mobile_iot_sim_kad N` to simulate a mobile/wireless network with nodes going offline according to a poisson traffic model. After terminating, the program will report how long it took to lookup 100 random keys. For large Ns, this will take a while and throw some errors, but it adjusts and finished eventially.
 
 ### Important Files
 - `setup_network.py` initialize network, run each node as a seperate process in a seperate gnome terminal.
