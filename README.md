@@ -16,7 +16,7 @@ Running the DHT simulations is only supported in linux OS. Using a VM is highly 
 A basic implementation of a chord DHT used in IOT communication simulations.
 
 ### Usage
-Run `setup_network.py N` before running anything else to initialize the network with N nodes. This will open N gnome terminals, which must be closed before running the program again. Testing was carried out with 3 initial network nodes, but any number would work.
+Run `setup_network.py N` before running anything else to initialize the network with N nodes. This will open N gnome terminals, which must be closed before running the program again. Testing was carried out with 3 initial network nodes, but any number would work. Make sure a `/logs` folder exists in current directory before running.
 
 Run `iot_sim_chord.py 127.0.0.1 3000 N` to test how long it takes to insert and check N value-key pairs.
 
@@ -34,7 +34,7 @@ Run `mobile_iot_sim_chord N` to simulate a mobile/wireless network with nodes go
 Python Kademlia API (a basic implementation of a Kademlia DHT: https://kademlia.readthedocs.io/en/latest/) used in IOT communication simulations.
 
 ### Usage
-Run `setup_network.py N` before running anything else to initialize the network with N nodes. This will open N gnome terminals, which must be closed before running the program again. Testing was carried out with 3 initial network nodes, but any number would work.
+Run `setup_network.py N` before running anything else to initialize the network with N nodes. This will open N gnome terminals, which must be closed before running the program again. Testing was carried out with 3 initial network nodes, but any number would work. Make sure a `/logs` folder exists in current directory before running.
 
 Run `iot_sim_kademlia.py N` to test how long it takes to insert and check N value-key pairs.
 
