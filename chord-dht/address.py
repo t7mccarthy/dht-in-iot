@@ -1,5 +1,6 @@
 from config import *
 import hashlib
+import time
 
 def hash_(str):
 	result = hashlib.md5(str.encode())

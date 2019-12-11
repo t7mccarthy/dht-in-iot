@@ -8,6 +8,7 @@ import time
 import threading
 from config import *
 from network import *
+from chord import *
 from address import *
 
 def requires_connection(func):
@@ -49,8 +50,11 @@ class ClientNode(object):
 		self.send('insertKeyVal '+key+' '+value)	
 		return self.recv()
 
-	def automated_lookup(self, key):
+	def automated_lookup(self, key, return_result = True):
 		returnvalue = self.lookUpKey(key)
+		if return_result:
+			log("Returning lookup" + str(returnvalue), key)
+			return returnvalue
 		if returnvalue == '-1':
 			print("Key :",key," not found !!")
 	
@@ -86,7 +90,7 @@ class ClientNode(object):
 		random.shuffle(keys_lst)
 		current_time = time.time()
 		for k in keys_lst:
-			self.automated_lookup(k)
+			self.automated_lookup(k, False)
 		surpassed_time = time.time() - current_time
 		print(f"Checking {num_keys} key-value pairs (randomly) took {surpassed_time} seconds.")
 		print("Successfully exited.")

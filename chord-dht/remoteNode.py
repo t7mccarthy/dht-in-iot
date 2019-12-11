@@ -4,6 +4,7 @@ import json
 import socket
 import random
 import time
+import math
 
 import threading
 from config import *
@@ -19,11 +20,33 @@ def requires_connection(func):
 		self._mutex.release()
 		return ret
 	return inner
+
+def connection_log(x, y):
+	def inner(self, *args, **kwargs):
+		self._mutex.acquire()
+		self.open_connection()
+		ret = func(self, *args, **kwargs)
+		self.close_connection()
+		self._mutex.release()
+		return ret
+	time.sleep(0.005 * math.log(int(y) + 1))
+	def ping(self):
+		try:
+			s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+			s.connect((self._address.ip, self._address.port))
+			st = "\r\n"
+			s.sendall(st.encode('utf-8')) 	# this a dummy string:
+								# we have used this all over the place
+			s.close()
+			return True
+		except socket.error:
+			return False
 # This class will help to invoke remote prodedure calls
 # One remoteNode will simulate one remote node
 # RemoteObject will call the remote machine/process usnig socker -invoke 
 # someting on actual remote pc
 # get reply and give it back to us (local machine) --  simulating RPC
+log = connection_log
 class RemoteNode(object):
 	def __init__(self, remoteAddress = None):
 		self._address = remoteAddress

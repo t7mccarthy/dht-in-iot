@@ -57,7 +57,7 @@ if __name__ == "__main__":
 		k = str(random.randint(0, num_keys))
 		# print("Looking up")
 		try:
-			result = server.lookUpKey(k)
+			result = server.automated_lookup(k)
 		except ConnectionRefusedError:
 			print("CONNECTION REFUSED")
 			stop()
@@ -66,7 +66,6 @@ if __name__ == "__main__":
 			continue
 		print("found key during eval", i, k, result)
 		i += 1
-		if time.time() - current_time > 15: stop()
 	surpassed_time = time.time() - current_time
 	print(f"100 lookup operations with {num_keys} devices took {surpassed_time} seconds.")
 
